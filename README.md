@@ -19,6 +19,15 @@
 >
 > The shield now comes out with half a trigger press, and you can jump without letting go of the right stick. Shall I create it as a local profile?
 
+## How it works in four steps
+
+1. **You describe the problem** in plain words: "the right stick drifts", "aiming feels twitchy", "the brake is too short".
+2. **Claude reads your current profile** from Space Station and works out which settings to change, in small steps.
+3. **You see a before/after table** like the one above. Nothing exists yet, so you can say no or ask for something different.
+4. **You approve, and Claude creates a local profile.** You open Space Station, check it under **Inactive Configs** and put it on a slot yourself. If you change your mind, ask Claude to undo.
+
+No menus to dig through, no numbers to guess, and nothing reaches the controller until you apply it.
+
 ## Your controller is never touched
 
 Space Station writes every on-screen change straight to the controller's memory. Flydigi Tuner never does: it only creates and edits **local profiles**, which are files on your PC that Space Station lists under **Inactive Configs**.
