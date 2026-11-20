@@ -1,0 +1,11 @@
+{
+  "name": "flydigi-tuner",
+  "owner": { "name": "Flydigi Tuner contributors" },
+  "plugins": [
+    {
+      "name": "flydigi-tuner",
+      "source": "./",
+      "description": "Local-profile tools for Flydigi Space Station (never writes to the controller)."
+    }
+  ]
+}

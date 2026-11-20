@@ -1,0 +1,34 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  offline:
+    # The service client uses Windows named pipes, so tests run on Windows.
+    # They use synthetic data only: no Space Station install is needed.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Lint
+        run: |
+          uvx ruff@0.8.4 check
+          uvx ruff@0.8.4 format --check
+      - name: Offline tests (synthetic data)
+        run: uv run --script tests/test_offline.py
+      - name: MCP server over stdio (synthetic data)
+        run: uv run --script tests/test_mcp_stdio.py
+      - name: Plugin manifests are valid JSON
+        shell: pwsh
+        run: |
+          Get-Content .claude-plugin/plugin.json -Raw | ConvertFrom-Json | Out-Null
+          Get-Content .claude-plugin/marketplace.json -Raw | ConvertFrom-Json | Out-Null
+          Get-Content .mcp.json -Raw | ConvertFrom-Json | Out-Null
+      - name: No Space Station material in the repository
+        shell: pwsh
+        run: |
+          # The plugin reads everything it needs from the user's own Space Station install at runtime.
+          $bad = git ls-files | Where-Object { $_ -match '\.(asar|dat|tsv|pb)$|ui_labels\.json$|descriptors' }
+          if ($bad) { Write-Error "Space Station material must not be committed: $bad"; exit 1 }

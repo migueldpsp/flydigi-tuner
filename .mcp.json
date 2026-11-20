@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "flydigi-tuner": {
+      "command": "uv",
+      "args": ["run", "--script", "${CLAUDE_PLUGIN_ROOT}/server/flydigi_mcp.py"]
+    }
+  }
+}

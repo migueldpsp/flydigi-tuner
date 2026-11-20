@@ -1,0 +1,6 @@
+{
+  "name": "flydigi-tuner",
+  "version": "0.7.0",
+  "description": "Prepare profiles for Flydigi VADER 5 Pro, VADER 4 Pro, APEX 4 and VADER 3 Pro controllers as LOCAL Space Station profiles on the PC (buttons, turbo, sticks, triggers, vibration, gyro). Never writes to the controller: you apply them yourself in Space Station.",
+  "keywords": ["flydigi", "space-station", "controller", "gamepad", "vader", "vader-4-pro", "vader-5-pro", "apex-4", "vader-3-pro", "mcp"]
+}
